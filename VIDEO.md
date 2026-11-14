@@ -92,7 +92,8 @@ sources". Point at the live strip.
 > the ticket. All one hundred and forty records are listed in one place.
 >
 > The signals strip is read through the MCP once a minute on the full server, and the
-> hosted copy refreshes on a schedule. Notes go back through write_note.
+> hosted copy refreshes on a schedule. Each signal is delivered once, so the page keeps
+> them as dated events. Notes go back through write_note.
 
 ### 3:10 – 3:20 · Close
 

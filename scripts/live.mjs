@@ -6,6 +6,7 @@ import { writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadEnv, createMcp, saveRaw } from "../lib/mcp.mjs";
+import { loadSignals } from "../lib/signals.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const env = loadEnv(root);
@@ -22,12 +23,14 @@ try {
   const data = await mcp.call("get_signals");
   const signals = Array.isArray(data) ? data : data?.signals || [];
   if (!signals.length) {
-    console.log("live: no signals returned; keeping the stored list.");
+    const kept = loadSignals(root);
+    console.log(`live: no new signals; ${kept.length} already on file.`);
     process.exit(0);
   }
   saveRaw(root, "get_signals", data);
-  writeFileSync(resolve(root, "data/signals.json"), JSON.stringify(signals, null, 2));
-  console.log(`live: ${signals.length} signals saved`);
+  const merged = loadSignals(root);
+  writeFileSync(resolve(root, "data/signals.json"), JSON.stringify(merged, null, 2));
+  console.log(`live: ${signals.length} new, ${merged.length} signals on file`);
 } catch (e) {
   console.error(`live: ${e.code === 429 ? "rate limited" : e.message || e}. Deploying the last stored state.`);
   process.exit(0);

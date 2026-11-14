@@ -4,16 +4,16 @@
     "asOf": "2026-11-30",
     "dayLabel": "Records to Monday, 30 November 2026",
     "headline": "Two contracts renew by 28 February. One champion leaves in January, one busy cluster of docks has gone quiet, and one inspector has been waiting since August for a written answer. Everything below is read from the account records; where a number is not in a record, it is shown as unknown.",
-    "lastSync": "2026-11-14T08:39:07.630Z",
-    "lastSyncLabel": "14 Nov, 14:09",
-    "nextPollAt": "2026-11-14T08:40:10.228Z",
+    "lastSync": null,
+    "lastSyncLabel": "the stored pull",
+    "nextPollAt": "2026-11-14T08:50:08.670Z",
     "pollState": "ok",
-    "callsLabel": "One MCP read a minute · last 14:09",
-    "footLabel": "Reads: get_signals every minute · writes: write_note. Last sync 14/11/2026, 14:09:07.",
+    "callsLabel": "Stored pull loaded · live reads start in a minute",
+    "footLabel": "Reads: get_signals every minute · writes: write_note. Last sync not yet.",
     "liveLabel": "Live",
     "counts": {
       "accounts": 2,
-      "signals": 2,
+      "signals": 3,
       "notes": 0,
       "risks": 10
     }
@@ -1514,6 +1514,22 @@
   ],
   "signals": [
     {
+      "id": "usage_drop",
+      "account": "B",
+      "dated": "2026-11-30",
+      "title": "Aldermoor: three docks that fly most nights have stopped",
+      "summary": "New weekly usage for Aldermoor, 2 to 29 November. Three docks that flew most nights flew nothing in the last two weeks. All three stayed online. No ticket has been raised and nobody at the customer has said anything.",
+      "records": [
+        {
+          "kind": "usage",
+          "path": "B/usage_weekly.csv",
+          "note": "Rows to add to the account's weekly usage.",
+          "text": "week_start,dock_id,flights,days_online\n2026-11-02,AD-01,1,7\n2026-11-09,AD-01,0,7\n2026-11-16,AD-01,0,7\n2026-11-23,AD-01,0,7\n2026-11-02,AD-02,6,7\n2026-11-09,AD-02,7,7\n2026-11-16,AD-02,0,7\n2026-11-23,AD-02,0,7\n2026-11-02,AD-03,0,7\n2026-11-09,AD-03,0,7\n2026-11-16,AD-03,1,7\n2026-11-23,AD-03,0,7\n2026-11-02,AD-04,0,7\n2026-11-09,AD-04,1,7\n2026-11-16,AD-04,0,7\n2026-11-23,AD-04,0,7\n2026-11-02,AD-05,6,7\n2026-11-09,AD-05,7,7\n2026-11-16,AD-05,0,7\n2026-11-23,AD-05,0,7\n2026-11-02,AD-06,0,7\n2026-11-09,AD-06,0,7\n2026-11-16,AD-06,0,7\n2026-11-23,AD-06,1,7\n2026-11-02,AD-07,0,7\n2026-11-09,AD-07,0,7\n2026-11-16,AD-07,1,7\n2026-11-23,AD-07,0,7\n2026-11-02,AD-08,6,7\n2026-11-09,AD-08,7,7\n2026-11-16,AD-08,5,7\n2026-11-23,AD-08,6,7\n2026-11-02,AD-09,1,7\n2026-11-09,AD-09,0,7\n2026-11-16,AD-09,0,7\n2026-11-23,AD-09,0,7\n2026-11-02,AD-10,5,7\n2026-11-09,AD-10,6,7\n2026-11-16,AD-10,0,7\n2026-11-23,AD-10,0,7\n2026-11-02,AD-11,0,7\n2026-11-09,AD-11,0,7\n2026-11-16,AD-11,1,7\n2026-11-23,AD-11,0,7\n2026-11-02,AD-12,0,7\n2026-11-09,AD-12,1,7\n2026-11-16,AD-12,0,7\n2026-11-23,AD-12,0,7\n2026-11-02,AD-13,1,7\n2026-11-09,AD-13,0,7\n2026-11-16,AD-13,0,7\n2026-11-23,AD-13,0,7\n2026-11-02,AD-14,0,7\n2026-11-09,AD-14,0,7\n2026-11-16,AD-14,0,7\n2026-11-23,AD-14,0,7\n"
+        }
+      ],
+      "set_off_at": "2026-11-13T13:33:17.704Z"
+    },
+    {
       "id": "urgent_request",
       "account": "A",
       "dated": "2026-11-18",
@@ -1535,20 +1551,19 @@
       "set_off_at": "2026-11-13T13:32:54.168Z"
     },
     {
-      "id": "usage_drop",
-      "account": "B",
-      "dated": "2026-11-30",
-      "title": "Aldermoor: three docks that fly most nights have stopped",
-      "summary": "New weekly usage for Aldermoor, 2 to 29 November. Three docks that flew most nights flew nothing in the last two weeks. All three stayed online. No ticket has been raised and nobody at the customer has said anything.",
+      "id": "champion_leaves",
+      "account": "A",
+      "dated": "2026-11-17",
+      "title": "Eastern Counties: Rhys Calder is moving on",
+      "summary": "Rhys Calder has emailed to say he leaves the drone programme in January. No successor is named. Every call on file before the handover was with him alone.",
       "records": [
         {
-          "kind": "usage",
-          "path": "B/usage_weekly.csv",
-          "note": "Rows to add to the account's weekly usage.",
-          "text": "week_start,dock_id,flights,days_online\n2026-11-02,AD-01,1,7\n2026-11-09,AD-01,0,7\n2026-11-16,AD-01,0,7\n2026-11-23,AD-01,0,7\n2026-11-02,AD-02,6,7\n2026-11-09,AD-02,7,7\n2026-11-16,AD-02,0,7\n2026-11-23,AD-02,0,7\n2026-11-02,AD-03,0,7\n2026-11-09,AD-03,0,7\n2026-11-16,AD-03,1,7\n2026-11-23,AD-03,0,7\n2026-11-02,AD-04,0,7\n2026-11-09,AD-04,1,7\n2026-11-16,AD-04,0,7\n2026-11-23,AD-04,0,7\n2026-11-02,AD-05,6,7\n2026-11-09,AD-05,7,7\n2026-11-16,AD-05,0,7\n2026-11-23,AD-05,0,7\n2026-11-02,AD-06,0,7\n2026-11-09,AD-06,0,7\n2026-11-16,AD-06,0,7\n2026-11-23,AD-06,1,7\n2026-11-02,AD-07,0,7\n2026-11-09,AD-07,0,7\n2026-11-16,AD-07,1,7\n2026-11-23,AD-07,0,7\n2026-11-02,AD-08,6,7\n2026-11-09,AD-08,7,7\n2026-11-16,AD-08,5,7\n2026-11-23,AD-08,6,7\n2026-11-02,AD-09,1,7\n2026-11-09,AD-09,0,7\n2026-11-16,AD-09,0,7\n2026-11-23,AD-09,0,7\n2026-11-02,AD-10,5,7\n2026-11-09,AD-10,6,7\n2026-11-16,AD-10,0,7\n2026-11-23,AD-10,0,7\n2026-11-02,AD-11,0,7\n2026-11-09,AD-11,0,7\n2026-11-16,AD-11,1,7\n2026-11-23,AD-11,0,7\n2026-11-02,AD-12,0,7\n2026-11-09,AD-12,1,7\n2026-11-16,AD-12,0,7\n2026-11-23,AD-12,0,7\n2026-11-02,AD-13,1,7\n2026-11-09,AD-13,0,7\n2026-11-16,AD-13,0,7\n2026-11-23,AD-13,0,7\n2026-11-02,AD-14,0,7\n2026-11-09,AD-14,0,7\n2026-11-16,AD-14,0,7\n2026-11-23,AD-14,0,7\n"
+          "kind": "email",
+          "path": "A/emails/2026-11-17_rhys_moving.txt",
+          "text": "From: Rhys Calder\nTo: (the CSM on the account)\nDate: 17 November 2026\nSubject: A change on my side\n\nA quick note so you hear it from me. I am moving to another role in the new year and will hand over the drone programme in January. My successor has not been named yet.\n\nAnything we have agreed stands. Until January, keep sending things to the programme office and I will make sure they land.\n\nRhys\n"
         }
       ],
-      "set_off_at": "2026-11-13T13:33:17.704Z"
+      "set_off_at": "2026-11-13T13:32:50.483Z"
     }
   ],
   "notes": [],
@@ -5825,6 +5840,30 @@
       }
     },
     {
+      "id": "signal:usage_drop",
+      "kind": "signal",
+      "account": "B",
+      "title": "Aldermoor: three docks that fly most nights have stopped",
+      "date": "2026-11-30",
+      "quote": "New weekly usage for Aldermoor, 2 to 29 November. Three docks that flew most nights flew nothing in the last two weeks. All three stayed online. No ticket has been raised and nobody at the customer has said anything.",
+      "raw": {
+        "id": "usage_drop",
+        "account": "B",
+        "dated": "2026-11-30",
+        "title": "Aldermoor: three docks that fly most nights have stopped",
+        "summary": "New weekly usage for Aldermoor, 2 to 29 November. Three docks that flew most nights flew nothing in the last two weeks. All three stayed online. No ticket has been raised and nobody at the customer has said anything.",
+        "records": [
+          {
+            "kind": "usage",
+            "path": "B/usage_weekly.csv",
+            "note": "Rows to add to the account's weekly usage.",
+            "text": "week_start,dock_id,flights,days_online\n2026-11-02,AD-01,1,7\n2026-11-09,AD-01,0,7\n2026-11-16,AD-01,0,7\n2026-11-23,AD-01,0,7\n2026-11-02,AD-02,6,7\n2026-11-09,AD-02,7,7\n2026-11-16,AD-02,0,7\n2026-11-23,AD-02,0,7\n2026-11-02,AD-03,0,7\n2026-11-09,AD-03,0,7\n2026-11-16,AD-03,1,7\n2026-11-23,AD-03,0,7\n2026-11-02,AD-04,0,7\n2026-11-09,AD-04,1,7\n2026-11-16,AD-04,0,7\n2026-11-23,AD-04,0,7\n2026-11-02,AD-05,6,7\n2026-11-09,AD-05,7,7\n2026-11-16,AD-05,0,7\n2026-11-23,AD-05,0,7\n2026-11-02,AD-06,0,7\n2026-11-09,AD-06,0,7\n2026-11-16,AD-06,0,7\n2026-11-23,AD-06,1,7\n2026-11-02,AD-07,0,7\n2026-11-09,AD-07,0,7\n2026-11-16,AD-07,1,7\n2026-11-23,AD-07,0,7\n2026-11-02,AD-08,6,7\n2026-11-09,AD-08,7,7\n2026-11-16,AD-08,5,7\n2026-11-23,AD-08,6,7\n2026-11-02,AD-09,1,7\n2026-11-09,AD-09,0,7\n2026-11-16,AD-09,0,7\n2026-11-23,AD-09,0,7\n2026-11-02,AD-10,5,7\n2026-11-09,AD-10,6,7\n2026-11-16,AD-10,0,7\n2026-11-23,AD-10,0,7\n2026-11-02,AD-11,0,7\n2026-11-09,AD-11,0,7\n2026-11-16,AD-11,1,7\n2026-11-23,AD-11,0,7\n2026-11-02,AD-12,0,7\n2026-11-09,AD-12,1,7\n2026-11-16,AD-12,0,7\n2026-11-23,AD-12,0,7\n2026-11-02,AD-13,1,7\n2026-11-09,AD-13,0,7\n2026-11-16,AD-13,0,7\n2026-11-23,AD-13,0,7\n2026-11-02,AD-14,0,7\n2026-11-09,AD-14,0,7\n2026-11-16,AD-14,0,7\n2026-11-23,AD-14,0,7\n"
+          }
+        ],
+        "set_off_at": "2026-11-13T13:33:17.704Z"
+      }
+    },
+    {
       "id": "signal:urgent_request",
       "kind": "signal",
       "account": "A",
@@ -5886,28 +5925,37 @@
       ]
     },
     {
-      "id": "signal:usage_drop",
+      "id": "signal:champion_leaves",
       "kind": "signal",
-      "account": "B",
-      "title": "Aldermoor: three docks that fly most nights have stopped",
-      "date": "2026-11-30",
-      "quote": "New weekly usage for Aldermoor, 2 to 29 November. Three docks that flew most nights flew nothing in the last two weeks. All three stayed online. No ticket has been raised and nobody at the customer has said anything.",
+      "account": "A",
+      "title": "Eastern Counties: Rhys Calder is moving on",
+      "date": "2026-11-17",
+      "quote": "Rhys Calder has emailed to say he leaves the drone programme in January. No successor is named. Every call on file before the handover was with him alone.",
       "raw": {
-        "id": "usage_drop",
-        "account": "B",
-        "dated": "2026-11-30",
-        "title": "Aldermoor: three docks that fly most nights have stopped",
-        "summary": "New weekly usage for Aldermoor, 2 to 29 November. Three docks that flew most nights flew nothing in the last two weeks. All three stayed online. No ticket has been raised and nobody at the customer has said anything.",
+        "id": "champion_leaves",
+        "account": "A",
+        "dated": "2026-11-17",
+        "title": "Eastern Counties: Rhys Calder is moving on",
+        "summary": "Rhys Calder has emailed to say he leaves the drone programme in January. No successor is named. Every call on file before the handover was with him alone.",
         "records": [
           {
-            "kind": "usage",
-            "path": "B/usage_weekly.csv",
-            "note": "Rows to add to the account's weekly usage.",
-            "text": "week_start,dock_id,flights,days_online\n2026-11-02,AD-01,1,7\n2026-11-09,AD-01,0,7\n2026-11-16,AD-01,0,7\n2026-11-23,AD-01,0,7\n2026-11-02,AD-02,6,7\n2026-11-09,AD-02,7,7\n2026-11-16,AD-02,0,7\n2026-11-23,AD-02,0,7\n2026-11-02,AD-03,0,7\n2026-11-09,AD-03,0,7\n2026-11-16,AD-03,1,7\n2026-11-23,AD-03,0,7\n2026-11-02,AD-04,0,7\n2026-11-09,AD-04,1,7\n2026-11-16,AD-04,0,7\n2026-11-23,AD-04,0,7\n2026-11-02,AD-05,6,7\n2026-11-09,AD-05,7,7\n2026-11-16,AD-05,0,7\n2026-11-23,AD-05,0,7\n2026-11-02,AD-06,0,7\n2026-11-09,AD-06,0,7\n2026-11-16,AD-06,0,7\n2026-11-23,AD-06,1,7\n2026-11-02,AD-07,0,7\n2026-11-09,AD-07,0,7\n2026-11-16,AD-07,1,7\n2026-11-23,AD-07,0,7\n2026-11-02,AD-08,6,7\n2026-11-09,AD-08,7,7\n2026-11-16,AD-08,5,7\n2026-11-23,AD-08,6,7\n2026-11-02,AD-09,1,7\n2026-11-09,AD-09,0,7\n2026-11-16,AD-09,0,7\n2026-11-23,AD-09,0,7\n2026-11-02,AD-10,5,7\n2026-11-09,AD-10,6,7\n2026-11-16,AD-10,0,7\n2026-11-23,AD-10,0,7\n2026-11-02,AD-11,0,7\n2026-11-09,AD-11,0,7\n2026-11-16,AD-11,1,7\n2026-11-23,AD-11,0,7\n2026-11-02,AD-12,0,7\n2026-11-09,AD-12,1,7\n2026-11-16,AD-12,0,7\n2026-11-23,AD-12,0,7\n2026-11-02,AD-13,1,7\n2026-11-09,AD-13,0,7\n2026-11-16,AD-13,0,7\n2026-11-23,AD-13,0,7\n2026-11-02,AD-14,0,7\n2026-11-09,AD-14,0,7\n2026-11-16,AD-14,0,7\n2026-11-23,AD-14,0,7\n"
+            "kind": "email",
+            "path": "A/emails/2026-11-17_rhys_moving.txt",
+            "text": "From: Rhys Calder\nTo: (the CSM on the account)\nDate: 17 November 2026\nSubject: A change on my side\n\nA quick note so you hear it from me. I am moving to another role in the new year and will hand over the drone programme in January. My successor has not been named yet.\n\nAnything we have agreed stands. Until January, keep sending things to the programme office and I will make sure they land.\n\nRhys\n"
           }
         ],
-        "set_off_at": "2026-11-13T13:33:17.704Z"
+        "set_off_at": "2026-11-13T13:32:50.483Z"
       }
+    },
+    {
+      "id": "signal-email:champion_leaves",
+      "kind": "email",
+      "account": "A",
+      "title": "Email received with the signal",
+      "date": "2026-11-17",
+      "quote": "From: Rhys Calder\nTo: (the CSM on the account)\nDate: 17 November 2026\nSubject: A change on my side\n\nA quick note so you hear it from me. I am moving to another role in the new year and will hand over the drone programme in January. My successor has not been named yet.\n\nAnything we have agreed stands. Until January, keep sending things to the programme office and I will make sure they land.\n\nRhys\n",
+      "path": "A/emails/2026-11-17_rhys_moving.txt",
+      "raw": "From: Rhys Calder\nTo: (the CSM on the account)\nDate: 17 November 2026\nSubject: A change on my side\n\nA quick note so you hear it from me. I am moving to another role in the new year and will hand over the drone programme in January. My successor has not been named yet.\n\nAnything we have agreed stands. Until January, keep sending things to the programme office and I will make sure they land.\n\nRhys\n"
     },
     {
       "id": "ticket:FB-10120",

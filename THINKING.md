@@ -39,9 +39,9 @@ The second protects the renewal from Rhys Calder's January exit. The third start
 order and the force-by-force review before the 28 February term end. Ranked by deadline,
 then by value at risk.
 
-**Signals are read, not displayed.** The three live signals are wired into the answers
-they change, and the "What has just landed" strip says which move, risk and gap each one
-feeds. A signal feed that nobody acts on is decoration.
+**Signals are read, not displayed.** The MCP gives each signal once, so the page keeps all
+three as dated events and wires each into the move, risk and gap it changes. A signal feed
+that nobody acts on is decoration.
 
 ## What I deliberately did not do
 

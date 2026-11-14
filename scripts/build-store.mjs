@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadRaw, analyze } from "../lib/analyze.mjs";
+import { loadSignals } from "../lib/signals.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -15,7 +16,7 @@ export function readJson(path, fallback) {
 
 export function build({ lastSync = null, nextPollAt = null, pollState = "ok", callsLabel, footLabel } = {}) {
   const raw = loadRaw(root);
-  const signals = readJson(resolve(root, "data/signals.json"), raw.get_signals?.signals || []);
+  const signals = loadSignals(root);
   const notes = readJson(resolve(root, "data/notes.json"), []);
   const out = analyze({
     raw,

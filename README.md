@@ -80,8 +80,9 @@ The server makes at most one MCP call a minute.
 - Notes posted from the page are accepted immediately, shown as *queued*, and written on
   the next slot. The UI refreshes its local state every 30 seconds and counts down to the
   next call.
-- `get_signals` replaces the signal list in `data/signals.json`; the analysis is rebuilt
-  on every tick.
+- `get_signals` delivers each signal once, so the server merges new signals into the stored
+  archive instead of replacing the list. The page keeps every signal it has been given,
+  with its date; the analysis is rebuilt on every tick.
 
 Endpoints:
 
@@ -108,11 +109,12 @@ Endpoints:
 server.mjs            HTTP server, static files, API, live loop
 lib/mcp.mjs           MCP JSON-RPC client (SSE aware, detects 429)
 lib/analyze.mjs       raw records -> five answers, sources and derived calcs
+lib/signals.mjs       merges each one-off signal into the stored archive
 scripts/pull-all.mjs  rate-limited batch pull into data/raw
 scripts/build-store.mjs  build data/store.json
 scripts/check.mjs     invariants + token-leak check
 public/               index.html, styles.css, app.js (no build, no deps)
-data/                 store.json, signals.json, notes.json (raw/ is gitignored)
+data/                 store.json, signals.json, notes.json (raw/ is committed evidence)
 ```
 
 ## Known limits

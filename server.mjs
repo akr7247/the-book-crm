@@ -4,6 +4,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve, dirname, join, extname, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadEnv, createMcp } from "./lib/mcp.mjs";
+import { mergeSignals, loadSignals } from "./lib/signals.mjs";
 import { build } from "./scripts/build-store.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)));
@@ -22,7 +23,7 @@ const signalsPath = resolve(root, "data/signals.json");
 const notesPath = resolve(root, "data/notes.json");
 const readJson = (p, f) => { try { return JSON.parse(readFileSync(p, "utf8")); } catch { return f; } };
 
-let signals = readJson(signalsPath, []);
+let signals = loadSignals(root);
 let notes = readJson(notesPath, []);
 let queue = [];
 let lastSync = null;
@@ -83,7 +84,7 @@ async function tick() {
       const result = await mcp.call("get_signals");
       const list = Array.isArray(result) ? result : result?.signals || [];
       if (list.length) {
-        signals = list;
+        signals = mergeSignals(signals, list);
         await save(signalsPath, signals);
       }
     }

@@ -132,14 +132,23 @@ const SIGNAL_USE = {
 
 function renderSignals() {
   const list = state.signals.slice().sort((a, b) => (b.dated || "").localeCompare(a.dated || ""));
-  $("#signalsSub").innerHTML = `${list.length} event${list.length === 1 ? "" : "s"} read through <code>get_signals</code>, newest first. ${state.meta.lastSync ? "Last live read " + esc(state.meta.lastSyncLabel) + "." : "Stored pull; the live read starts on the next slot."}`;
+  $("#signalsSub").innerHTML = `${list.length} signal${list.length === 1 ? "" : "s"} on file, newest first. <code>get_signals</code> delivers each event once, so the page keeps every one it has been given. ${state.meta.lastSync ? "Last live read " + esc(state.meta.lastSyncLabel) + "." : "Stored pull; the live read starts on the next slot."}`;
   $("#signalsBody").innerHTML = list.length
     ? `<div class="risks">${list
         .map((s) => {
           const recs = (s.records || []).map((r) => {
             if (r.kind === "email") return cite(`signal-email:${s.id}`, "email");
-            if (r.kind === "usage") return cite(`usage:${s.account}:AD-02`, "weekly usage");
-            if (r.kind === "request") return cite(`request:FB-11206`, "ticket FB-11206");
+            if (r.kind === "usage") {
+              return ["AD-02", "AD-05", "AD-10"]
+                .filter((d) => srcIndex.has(`usage:${s.account}:${d}`))
+                .map((d) => cite(`usage:${s.account}:${d}`, d))
+                .join(" ");
+            }
+            if (r.kind === "request") {
+              const row = String(r.text || "").trim().split(/\r?\n/)[1] || "";
+              const id = row.split(",")[0].trim();
+              return id && srcIndex.has(`request:${id}`) ? cite(`request:${id}`, `ticket ${id}`) : cite(`signal:${s.id}`, "request");
+            }
             return cite(`signal:${s.id}`, "record");
           });
           return `<div class="risk low" style="border-left-color:var(--violet)">
@@ -152,7 +161,7 @@ function renderSignals() {
           </div>`;
         })
         .join("")}</div>`
-    : `<div class="empty">No live events yet. The server reads <code>get_signals</code> once a minute.</div>`;
+    : `<div class="empty">No signals yet. The server reads <code>get_signals</code> once a minute and keeps each signal it is given.</div>`;
 }
 
 
