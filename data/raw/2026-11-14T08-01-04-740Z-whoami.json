@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1794643264059,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n \"player_id\": \"c35fb77d-de4d-4965-84f1-40a5635d7920\",\n \"your_morning_over\": true,\n \"new_accounts\": [],\n \"pack\": [\n  {\n   \"account\": \"A\",\n   \"open\": true\n  },\n  {\n   \"account\": \"B\",\n   \"open\": true\n  }\n ],\n \"signals\": 3,\n \"paths\": [\n  \"/me\",\n  \"/export\",\n  \"/files/:id\",\n  \"/pack\",\n  \"/pack/team\",\n  \"/pack/:account\",\n  \"/pack/:account/all\",\n  \"/pack/:account/<path>\",\n  \"/pack/search?q=\",\n  \"/pack/feature-requests\",\n  \"/pack/release-notes\",\n  \"/signals\",\n  \"/schema\",\n  \"/notes (GET, POST)\"\n ]\n}"
+      }
+    ],
+    "isError": false
+  }
+}

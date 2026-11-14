@@ -1,0 +1,17 @@
+{
+  "name": "book-crm",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A live CRM for two accounts, built from the Account Quest MCP. Every number links to its source.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "build:store": "node scripts/build-store.mjs",
+    "pull": "node scripts/pull-all.mjs",
+    "live": "node scripts/live.mjs",
+    "export": "node scripts/export-static.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}

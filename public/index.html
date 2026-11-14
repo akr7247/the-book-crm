@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Book — Monday brief</title>
+<meta name="description" content="A live CRM for two accounts. Every number links to the record it came from." />
+<link rel="stylesheet" href="styles.css?v=8" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"></span>
+    <div>
+      <strong>The Book</strong>
+      <span class="sub" id="bookSub">Two accounts · one page</span>
+    </div>
+  </div>
+  <div class="live" id="live">
+    <span class="dot" id="liveDot"></span>
+    <span id="liveText">Connecting…</span>
+  </div>
+  <div class="topActions">
+    <button class="ghost" id="sourcesBtn" type="button">All sources</button>
+    <button class="ghost" id="refreshBtn" type="button">Refresh</button>
+  </div>
+</header>
+
+<nav class="accountbar" id="accountbar" aria-label="Accounts"></nav>
+
+<main id="main">
+  <section class="hero" id="hero" aria-live="polite">
+    <p class="eyebrow" id="heroDate">Monday brief</p>
+    <h1 id="heroTitle">Loading the book…</h1>
+    <p class="lede" id="heroLede"></p>
+    <div class="heroStats" id="heroStats"></div>
+  </section>
+
+  <div class="layout">
+    <aside class="side" aria-label="Sections">
+      <a href="#signals" data-num="0"><span>●</span> What has just landed</a>
+      <a href="#q1" data-num="1"><span>01</span> What is the book worth?</a>
+      <a href="#q2" data-num="2"><span>02</span> Who holds the power?</a>
+      <a href="#q3" data-num="3"><span>03</span> What do you do first?</a>
+      <a href="#q4" data-num="4"><span>04</span> What is about to go wrong?</a>
+      <a href="#q5" data-num="5"><span>05</span> What do you still not know?</a>
+      <div class="sidefoot">
+        <span class="tiny" id="callCount"></span>
+      </div>
+    </aside>
+
+    <div class="content">
+      <section class="card q" id="signals">
+        <header><span class="qn">●</span><div><h2>What has just landed</h2><p class="qsub" id="signalsSub">Live events read through <code>get_signals</code>, newest first.</p></div></header>
+        <div id="signalsBody" class="qbody" style="padding-top:14px"></div>
+      </section>
+
+      <section class="card q" id="q1">
+        <header><span class="qn">01</span><div><h2>What is the book worth?</h2><p class="qsub" id="q1sub"></p></div></header>
+        <div id="q1body" class="qbody"></div>
+      </section>
+
+      <section class="card q" id="q2">
+        <header><span class="qn">02</span><div><h2>Who holds the power?</h2><p class="qsub" id="q2sub"></p></div></header>
+        <div id="q2body" class="qbody"></div>
+      </section>
+
+      <section class="card q" id="q3">
+        <header><span class="qn">03</span><div><h2>What do you do first?</h2><p class="qsub" id="q3sub"></p></div></header>
+        <div id="q3body" class="qbody"></div>
+      </section>
+
+      <section class="card q" id="q4">
+        <header><span class="qn">04</span><div><h2>What is about to go wrong?</h2><p class="qsub" id="q4sub"></p></div></header>
+        <div id="q4body" class="qbody"></div>
+      </section>
+
+      <section class="card q" id="q5">
+        <header><span class="qn">05</span><div><h2>What do you still not know?</h2><p class="qsub" id="q5sub"></p></div></header>
+        <div id="q5body" class="qbody"></div>
+      </section>
+
+      <section class="card" id="notes">
+        <header><span class="qn">✎</span><div><h2>Write back</h2><p class="qsub">Notes land in the CRM through <code>write_note</code>, on the next sync slot.</p></div></header>
+        <form id="noteForm" class="noteform">
+          <div class="row">
+            <label>Account
+              <select id="noteAccount"></select>
+            </label>
+            <label>Kind
+              <select id="noteKind">
+                <option value="note">Note</option>
+                <option value="task">Task</option>
+                <option value="risk">Risk</option>
+                <option value="next_step">Next step</option>
+              </select>
+            </label>
+            <label class="grow">Title
+              <input id="noteTitle" placeholder="e.g. Call Karen before Friday" maxlength="120" />
+            </label>
+          </div>
+          <label>Text
+            <textarea id="noteText" rows="3" required placeholder="What happened, what you decided, what happens next."></textarea>
+          </label>
+          <div class="row end">
+            <span class="tiny" id="noteStatus"></span>
+            <button class="primary" type="submit">Queue note</button>
+          </div>
+        </form>
+        <ul class="notelist" id="noteList"></ul>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>Every figure carries its record id. Click any <span class="src inline">id</span> to read the source.</span>
+  <span id="footSync"></span>
+</footer>
+
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Source record">
+  <div class="drawerHead">
+    <div>
+      <p class="eyebrow" id="drawerKind">Source</p>
+      <h3 id="drawerTitle">Record</h3>
+    </div>
+    <button class="icon" id="drawerClose" aria-label="Close">×</button>
+  </div>
+  <div class="drawerBody" id="drawerBody"></div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+
+<div class="modal" id="sourcesModal" hidden>
+  <div class="modalCard">
+    <div class="drawerHead">
+      <div><p class="eyebrow">Provenance</p><h3>Every source on this page</h3></div>
+      <button class="icon" id="sourcesClose" aria-label="Close">×</button>
+    </div>
+    <div class="modalBody" id="sourcesBody"></div>
+  </div>
+</div>
+
+<script src="app.js?v=8"></script>
+</body>
+</html>
